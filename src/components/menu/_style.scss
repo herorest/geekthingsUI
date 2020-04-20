@@ -1,0 +1,124 @@
+.menu{
+    width:256px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    .menu-item{
+        padding: $menu-item-padding-y  $menu-item-padding-x;
+        transition: $menu-transition;
+        color: $gray-11;
+
+        &:hover,
+        &:focus{
+            text-decoration: none;
+        }
+
+        &.disabled{
+            color: $menu-item-disabled-color;
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+
+    .submenu{
+        position:relative;
+
+        .sub-title{
+            width:100%;
+            height:100%;
+            transition: $menu-transition;
+        }
+
+
+    }
+}
+
+.menu-horizontal{
+    width: 100%;
+
+    .menu-item{
+        border-bottom: $menu-item-active-border-width solid transparent;
+
+        &.active, 
+        &:hover{
+            color: $menu-item-active-color;
+            border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+        }
+    }
+
+    .submenu{
+
+        ul{
+            display: none;
+            position: absolute;
+            top:2.5rem;
+            background:#fff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+            &.opened{
+                display:block;
+            }
+        }
+    }
+}
+
+.menu-vertical{
+    flex-direction: column;
+    border-bottom:0;
+    border-right: $menu-border-width solid $menu-border-color;
+
+    .menu-item{
+        border-left: $menu-item-active-border-width solid transparent;
+
+        &.active, 
+        &:hover{
+            color: $menu-item-active-color;
+            border-left: $menu-item-active-border-width solid $menu-item-active-color;
+        }
+    }
+
+    .has-submenu{
+        padding:0;
+        border-left: 0;
+
+        .sub-title{
+            padding:$menu-item-padding-y  $menu-item-padding-x;
+            transition: $menu-transition;
+            border-left: $menu-item-active-border-width solid transparent;
+        }
+
+        &.active,
+        &:hover{
+            color: $gray-11;
+            border:0;
+
+            .sub-title{
+                border-left: $menu-item-active-border-width solid $menu-item-active-color;
+            }
+        }
+
+        ul{
+            display: none;
+
+            &.opened{
+                display:block;
+                padding: 0 $menu-item-padding-x;
+
+                li{
+
+                    &.menu-item{
+                        border-left: 0;
+                
+                        &.active, 
+                        &:hover{
+                            color: $menu-item-active-color;
+                            background: $gray-3;
+                            border-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

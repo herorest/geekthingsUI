@@ -1,0 +1,52 @@
+$btn-font-weight: 400;
+$btn-padding-x: .75rem !default;
+$btn-padding-y: .375rem !default;
+$btn-font-family: $font-family-default !default;
+$btn-font-size: $font-size-base !default;
+$btn-line-height: $line-height-base !default;
+
+$btn-padding-x-small: .5rem !default;
+$btn-padding-y-small: .25rem !default;
+$btn-font-size-small: $font-size-small !default;
+
+$btn-padding-x-large: 1rem !default;
+$btn-padding-y-large: .5rem !default;
+$btn-font-size-large: $font-size-large !default;
+
+$btn-border-width: $border-width !default;
+$btn-border-radius : .1rem;
+$btn-box-shadow: none;
+$btn-transition: color .1s ease, background-color .1s ease;
+
+$btn-disabled-opacity: 0.5;
+
+@mixin button-size($padding-x, $padding-y, $font-size, $border-radius){
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+    border-radius: $border-radius;
+}
+
+@mixin button-style($color, $background, $border, $hover-color: $color, $hover-background:darken($background, 10%), $hover-border: $border){
+    color: $color;
+    background:$background;
+    border: $border;
+
+    &:hover{
+        color: $hover-color;
+        background:$hover-background;
+        border: $hover-border;
+    }
+
+    &:focus{
+        color: $hover-color;
+        background:$hover-background;
+        border: $hover-border;
+    }
+
+    &.disabled,
+    &[disabled]{
+        color: $color;
+        background:$background;
+        border: $border;
+    }
+}

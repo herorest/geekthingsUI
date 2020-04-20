@@ -1,0 +1,48 @@
+.alert {
+    width:16rem;
+    position: absolute;
+    top:2rem;
+    left:50%;
+    margin: 0 0 0 -8rem;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: $gray-1;
+    // display:none;
+
+    .title{
+        font-size: $alert-title-font-size;
+        font-weight: $alert-title-font-weight;
+        padding: 0 0 $alert-padding-y ;
+    }
+
+    .content{
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+    }
+
+    .close{
+        position: absolute;
+        right:0.2rem;
+        top:0.2rem;
+    }
+
+    &.show{
+        display:block;
+    }
+}
+
+.alert-success{
+   background: $green;
+}
+
+.alert-default{
+    background: $blue;
+}
+
+.alert-danger{
+    background: $red;
+}
+
+.alert-warning{
+    background: $yellow;
+}

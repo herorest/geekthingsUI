@@ -1,23 +1,63 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import Button from './components/button/button'
+import Alert from './components/alert/alert'
+import Menu from './components/menu/menu'
+import MenuItem from './components/menu/menuItem'
+import SubMenu from './components/menu/submenu'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCoffee} from '@fortawesome/free-solid-svg-icons'
 
-function App() {
+import './styles/index.scss'
+
+interface BaseButtonProps {
+  danger ?: boolean;
+  type ?: string;
+}
+
+const Child: React.FC<BaseButtonProps> = function (props) {
+  return (
+    <Button size="small" type="link"
+      className="App-link"
+      href="https://reactjs.org"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn React
+    </Button>
+  );
+}
+
+const App: React.FC = function () {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>123</h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Child danger type="dashed" />
+        <Button onClick={() => {alert(1)}} disabled size="large">menu1</Button>
+        <Button danger size="large">click</Button>
+        <Button onClick={() => {alert(2)}} size="small" type="primary">click</Button>
+        <Button size="small" type="link">click</Button>
+        <Alert type="default" title="你好" content="有天"></Alert>
+
+        <Menu way="vertical" defaultIndex='4' onSelect={(index) => {
+          console.log(index);
+        }}>
+          <MenuItem>menuitem1</MenuItem>
+          <MenuItem disabled>menuitem2</MenuItem>
+          <MenuItem>menuitem3</MenuItem>
+          <MenuItem>menuitem4</MenuItem>
+          <SubMenu title="test">
+            <MenuItem>menuitem1</MenuItem>
+            <MenuItem disabled>menuitem2</MenuItem>
+            <MenuItem>menuitem3</MenuItem>
+          </SubMenu>
+        </Menu>
+
+        <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
       </header>
     </div>
   );
