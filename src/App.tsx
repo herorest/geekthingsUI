@@ -5,10 +5,12 @@ import Alert from './components/alert/alert'
 import Menu from './components/menu/menu'
 import MenuItem from './components/menu/menuItem'
 import SubMenu from './components/menu/submenu'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCoffee} from '@fortawesome/free-solid-svg-icons'
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 
 import './styles/index.scss'
+import Icon from './components/icon/icon';
+library.add(faCoffee);
 
 interface BaseButtonProps {
   danger ?: boolean;
@@ -27,6 +29,7 @@ const Child: React.FC<BaseButtonProps> = function (props) {
     </Button>
   );
 }
+
 
 const App: React.FC = function () {
   return (
@@ -57,7 +60,9 @@ const App: React.FC = function () {
           </SubMenu>
         </Menu>
 
-        <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
+        {/* <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon> */}
+
+        <Icon icon={'coffee'} theme="danger"></Icon>
       </header>
     </div>
   );
