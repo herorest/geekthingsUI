@@ -19,6 +19,25 @@
             pointer-events: none;
             cursor: default;
         }
+
+        &.has-submenu{
+            cursor: pointer;
+        }
+
+        .sub-title{
+            display:flex;
+            justify-content: space-between;
+        }
+
+        .arrow{
+            transition: transform 0.2s ease;
+            font-size:12px;
+            transform: rotate(-90deg);
+
+            &.transform{
+                transform: rotate(0deg);
+            }
+        }
     }
 
     .submenu{
@@ -29,8 +48,6 @@
             height:100%;
             transition: $menu-transition;
         }
-
-
     }
 }
 

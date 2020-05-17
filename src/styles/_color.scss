@@ -30,6 +30,18 @@ $warning: $yellow !default;
 $danger: $red !default;
 $light: $gray-2 !default;
 $dark: $gray-12 !default;
+$info: $cyan !default;
+$success: $green !default;
 
 $body-bg: $gray-1!default;
 $body-color: $gray-13!default;
+
+$theme-colors:(
+  'primary': $primary,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+  'info': $info,
+  'success': $success
+)

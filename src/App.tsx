@@ -6,11 +6,11 @@ import Menu from './components/menu/menu'
 import MenuItem from './components/menu/menuItem'
 import SubMenu from './components/menu/submenu'
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faCoffee} from '@fortawesome/free-solid-svg-icons';
+import {faCoffee, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
 import './styles/index.scss'
 import Icon from './components/icon/icon';
-library.add(faCoffee);
+library.add(faCoffee, faChevronDown);
 
 interface BaseButtonProps {
   danger ?: boolean;

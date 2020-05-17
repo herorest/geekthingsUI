@@ -2,6 +2,8 @@ import React, {useContext, FunctionComponentElement, useState} from 'react';
 import classNames from 'classnames';
 import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem'
+import Icon from '../icon/icon';
+import Transition from '../transition/transition'
 
 interface SubMenuProps {
     index ?: string;
@@ -74,13 +76,26 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
             }
         });
 
-        return <ul className={classes}>{list}</ul>
+        return (
+            <Transition
+                in={open}
+                timeout={300}
+                className="zoom-in-top"
+            >
+                <ul className={classes}>{list}</ul>
+            </Transition>
+        )
     }
+
+    const arrowclasses = classNames('arrow', {
+        'transform' : open
+    });
 
     return (
         <li key={index} className={classes} onClick={handleClickMenu}>
             <div className="sub-title" onClick={handleClick} {...mouseAction}>
                 {title}
+                <Icon icon={'chevron-down'} className={arrowclasses}></Icon>
             </div>
             {sublist()}
         </li>

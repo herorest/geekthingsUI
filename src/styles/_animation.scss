@@ -1,0 +1,35 @@
+@mixin zoom-action(
+  $direction: 'top', $scaleBegin: scaleY(0), $scaleEnd: scaleY(1), $origin: center top
+){
+  .zoom-in-#{$direction}{
+    display:block!important;
+  }
+  .zoom-in-#{$direction}.enter{
+    opacity: 0;
+    transform: $scaleBegin
+  }
+
+  .zoom-in-#{$direction}.enter-active{
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform .2s ease, opacity .2s ease;
+    transform-origin: $origin;
+  }
+
+  .zoom-in-#{$direction}.exit{
+    opacity: 1;
+  }
+
+  .zoom-in-#{$direction}.exit-active{
+    opacity: 0;
+    transform: $scaleBegin;
+    transition: transform .2s ease, opacity .2s ease;
+    transform-origin: $origin;
+  }
+
+  .zoom-in-#{$direction}.exit-done{
+    display:none!important;
+  }
+}
+
+@include zoom-action('top');
